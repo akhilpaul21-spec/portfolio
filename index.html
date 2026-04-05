@@ -898,10 +898,8 @@ img { display: block; max-width: 100%; }
     anchors.forEach(a => {
       a.classList.toggle('active', a.dataset.section === current);
     });
-    // Akhil Paul pill: white bg from top until past #studied-at
-    const studiedAt = document.getElementById('studied-at');
-    const studiedAtBottom = studiedAt ? studiedAt.offsetTop + studiedAt.offsetHeight : 0;
-    if (window.scrollY < studiedAtBottom - 60) {
+    // Akhil Paul pill: highlight when at hero (no section active), mute otherwise
+    if (current === '') {
       navLogo.classList.remove('scrolled');
     } else {
       navLogo.classList.add('scrolled');
