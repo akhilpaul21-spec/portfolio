@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Akhil Paul</title>
+<script>
+  // Redirect /work/* routes back to index.html for SPA routing
+  var path = window.location.pathname;
+  if (path.indexOf('/work/') === 0) {
+    window.location.replace('/?route=' + encodeURIComponent(path));
+  } else {
+    window.location.replace('/');
+  }
+</script>
+</head>
+<body></body>
+</html>
