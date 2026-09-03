@@ -1715,7 +1715,7 @@ a:focus-visible,
     <span style="font-size:12px;font-weight:500;color:#555;background:rgba(255,255,255,0.8);border:1px solid #e0e0e0;border-radius:20px;padding:4px 12px;">Product design</span>
     <span style="font-size:12px;font-weight:500;color:#555;background:rgba(255,255,255,0.8);border:1px solid #e0e0e0;border-radius:20px;padding:4px 12px;">Stakeholder management</span>
     <span style="font-size:12px;font-weight:500;color:#555;background:rgba(255,255,255,0.8);border:1px solid #e0e0e0;border-radius:20px;padding:4px 12px;">Enterprise UX</span>
-    <span style="font-size:12px;font-weight:500;color:#555;background:rgba(255,255,255,0.8);border:1px solid #e0e0e0;border-radius:20px;padding:4px 12px;">1 Sr. Manager, Product Design · 1 Lead Designer · 1 Director PM · 10–12 Devs</span>
+    <span style="font-size:12px;font-weight:500;color:#555;background:rgba(255,255,255,0.8);border:1px solid #e0e0e0;border-radius:20px;padding:4px 12px;">1 Product Design Manager</span>
 
   <!-- MY ROLE -->
   <div style="margin-bottom:48px;background:rgba(255,255,255,0.82);border:1px solid rgba(0,0,0,0.1);border-radius:12px;padding:20px 24px;">
@@ -2213,15 +2213,19 @@ a:focus-visible,
   (function() {
     var params = new URLSearchParams(window.location.search);
     var redirectedRoute = params.get('route');
-    if (redirectedRoute) {
-      window.history.replaceState(null, null, redirectedRoute);
-    }
     var path = redirectedRoute || window.location.pathname;
-    if (routeToOverlay[path]) {
-      window.addEventListener('DOMContentLoaded', function() {
+    // Defer until DOMContentLoaded: replaceState() changes the document's
+    // base URL used to resolve relative <img src>, so calling it while the
+    // parser is still mid-document would break every relative image that
+    // appears later in the HTML source.
+    window.addEventListener('DOMContentLoaded', function() {
+      if (redirectedRoute) {
+        window.history.replaceState(null, null, redirectedRoute);
+      }
+      if (routeToOverlay[path]) {
         _openOverlay(routeToOverlay[path]);
-      });
-    }
+      }
+    });
   })();
 </script>
 <script>
