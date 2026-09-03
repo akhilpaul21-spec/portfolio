@@ -604,6 +604,28 @@ span.section-label { text-transform: none; }
   gap: 16px;
 }
 
+/* ── Portrait mobile screen screenshots (case study overlays) ── */
+.mobile-screens-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 20px;
+}
+.mobile-screens-grid > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mobile-screens-grid img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 10px;
+  display: block;
+}
+.mobile-screens-grid p {
+  width: 100%;
+  max-width: 260px;
+}
+
 /* ── MOBILE ── */
 @media (max-width: 860px) {
   .nav { padding: 8px 10px; width: calc(100vw - 32px); }
@@ -677,6 +699,19 @@ span.section-label { text-transform: none; }
   #cs-panel .slot-grid { grid-template-columns: repeat(2, 1fr) !important; }
   #cs-panel .flow-diagram { overflow-x: auto; }
   #cs-panel .flow-actors { min-width: 540px; }
+
+  /* ── Portrait mobile screens: stay 2-up at reduced size ── */
+  .mobile-screens-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 10px;
+  }
+  .mobile-screens-grid img {
+    max-width: 100%;
+  }
+  .mobile-screens-grid p {
+    max-width: 100%;
+    font-size: 11px !important;
+  }
 
   /* ── Prevent horizontal overflow globally ── */
   body { overflow-x: hidden; }
@@ -2581,21 +2616,21 @@ a:focus-visible,
   <div style="margin-bottom:52px;">
     <span style="font-size:11px;font-weight:500;color:#818181;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;display:block;">Design: Chatbot Career Sites</span>
     <p style="font-size:15px;font-weight:300;color:#444;line-height:1.85;margin-bottom:20px;">The chatbot was continuously refined based on live data. The screens below represent the final design iteration, from the proactive pop-up through to job results and lead capture.</p>
-    <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:10px;">
+    <div class="mobile-screens-grid" style="margin-bottom:10px;">
       <div>
-        <img src="Chatbot career sites images/pd1.webp" alt="Chatbot popup" style="width:100%;border-radius:10px;display:block;">
+        <img src="Chatbot career sites images/pd1.webp" alt="Chatbot popup">
         <p style="font-size:12px;color:#888;margin-top:7px;line-height:1.6;"><strong>Chatbot pop-up</strong>: proactively greets career site visitors with quick-reply options. This single change (from passive to proactive) pushed engagement from 0.02% to up to 7% of web traffic.</p>
       </div>
       <div>
-        <img src="Chatbot career sites images/pd2.webp" alt="Job search" style="width:100%;border-radius:10px;display:block;">
+        <img src="Chatbot career sites images/pd2.webp" alt="Job search">
         <p style="font-size:12px;color:#888;margin-top:7px;line-height:1.6;"><strong>Job search flow</strong>: conversational questions guide the candidate through job category, title, location, and experience level to surface the most relevant openings with minimal friction.</p>
       </div>
       <div>
-        <img src="Chatbot career sites images/pd3.webp" alt="Showing jobs" style="width:100%;border-radius:10px;display:block;">
+        <img src="Chatbot career sites images/pd3.webp" alt="Showing jobs">
         <p style="font-size:12px;color:#888;margin-top:7px;line-height:1.6;"><strong>Showing matched jobs</strong>: roles presented as swipeable cards with title, location, and proximity. Lead capture (name, email, phone) happens only after a candidate expresses interest, following the "give first, then ask" principle that actually increased both lead volume and quality.</p>
       </div>
       <div>
-        <img src="Chatbot career sites images/pd4.webp" alt="FAQs" style="width:100%;border-radius:10px;display:block;">
+        <img src="Chatbot career sites images/pd4.webp" alt="FAQs">
         <p style="font-size:12px;color:#888;margin-top:7px;line-height:1.6;"><strong>FAQ answers</strong>: the bot handles company questions (culture, benefits, leadership) with rich responses including text, images, and video embeds, eliminating the need for call centres and saving recruiter time.</p>
       </div>
     </div>
